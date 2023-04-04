@@ -1,6 +1,6 @@
 package com.samuel.AON;
 
-public class Task1Timing {
+public class TaskOneTiming {
     public static void main(String[] args) {
         MyIncDecProxy myIncDecProxy = new MyIncDecProxy(new MyIncDec(1));
         myIncDecProxy.increment();
@@ -50,7 +50,7 @@ public class Task1Timing {
         public void decrement() {
             long start = System.currentTimeMillis();
             try{
-                this.myIncDec.decrement();;
+                this.myIncDec.decrement();
             } finally {
                 System.out.println("Decrement method time cost: " + (System.currentTimeMillis() - start));
             }
