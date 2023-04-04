@@ -7,25 +7,25 @@ public class TaskTwoFindArrayIndex {
 
     @Test
     public void testArraysShouldEqualTo2() {
-        int[] arr1 = {4,9,3,7,8};
-        int[] arr2 = {3,7};
-        Assert.assertEquals(2, findSubArrayIndex(arr1, arr2));
+        int[] mainArr = {4,9,3,7,8};
+        int[] subArr = {3,7};
+        Assert.assertEquals(2, findSubArrayIndex(mainArr, subArr));
     }
 
-    public static int findSubArrayIndex(int[] arr1, int[] arr2) {
-        if(arr1 == null || arr2 == null || arr1.length == 0 || arr2.length == 0) return -1;
-        if(arr1.length < arr2.length ) return -1;
+    public static int findSubArrayIndex(int[] mainArray, int[] subArray) {
+        if(mainArray == null || subArray == null || mainArray.length == 0 || subArray.length == 0) return -1;
+        if(mainArray.length < subArray.length ) return -1;
 
         int index = -1;
         int indexTemp;
-        for (int i = 0; i < arr1.length; i++) {
-            if(arr1[i] == arr2[0]){
+        for (int i = 0; i < mainArray.length; i++) {
+            if(mainArray[i] == subArray[0]){
                 index = i;
                 indexTemp = i;
-                if(arr2.length > arr1.length - index) return -1;
+                if(subArray.length > mainArray.length - index) return -1;
 
-                for (int j : arr2) {
-                    if (arr1[indexTemp++] != j) {
+                for (int j : subArray) {
+                    if (mainArray[indexTemp++] != j) {
                         index = -1;
                         break;
                     };
