@@ -22,7 +22,7 @@ public class TaskTwoFindArrayIndex {
             if(mainArray[i] == subArray[0]){
                 index = i;
                 comparingIndex = i;
-                if(subArray.length > mainArray.length - index) return -1;
+                if(mainArray.length - index < subArray.length) return -1;
 
                 for (int j : subArray) {
                     if (mainArray[comparingIndex++] != j) {
