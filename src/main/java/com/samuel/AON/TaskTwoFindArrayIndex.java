@@ -17,15 +17,15 @@ public class TaskTwoFindArrayIndex {
         if(mainArray.length < subArray.length ) return -1;
 
         int index = -1;
-        int indexTemp;
+        int comparingIndex;
         for (int i = 0; i < mainArray.length; i++) {
             if(mainArray[i] == subArray[0]){
                 index = i;
-                indexTemp = i;
+                comparingIndex = i;
                 if(subArray.length > mainArray.length - index) return -1;
 
                 for (int j : subArray) {
-                    if (mainArray[indexTemp++] != j) {
+                    if (mainArray[comparingIndex++] != j) {
                         index = -1;
                         break;
                     };
