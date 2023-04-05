@@ -7,12 +7,12 @@ public class TaskTwoFindArrayIndex {
 
     @Test
     public void testArraysShouldEqualTo2() {
-        int[] mainArr = {4,9,3,7,8};
+        int[] mainArr = {4,9,3,7,8,6};
         int[] subArr = {3,7};
-        Assert.assertEquals(2, findSubArrayIndex(mainArr, subArr));
+        Assert.assertEquals(2, findSubArrayFirstMatchingIndex(mainArr, subArr));
     }
 
-    public static int findSubArrayIndex(int[] mainArray, int[] subArray) {
+    public static int findSubArrayFirstMatchingIndex(int[] mainArray, int[] subArray) {
         if(mainArray == null || subArray == null || mainArray.length == 0 || subArray.length == 0) return -1;
         if(mainArray.length < subArray.length ) return -1;
 
@@ -30,8 +30,10 @@ public class TaskTwoFindArrayIndex {
                         break;
                     };
                 }
+                // to return only the first match index in case of multiple matches in the main array, eg {3,7} in {4,9,3,7,8,6,3,7}
+                if(index != -1) break;
             }
         }
-        return index;
+       return index;
     }
 }
